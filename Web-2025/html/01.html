@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>study web</title>
+
+		<script type="text/javascript">
+			function mydemo1(){
+				// 1.弹出警示框 输入内容
+ 				window.alert("hello web")
+				// 2.在HTML页面 输入内容
+				//document.write("hhhhh")
+				// 3.在控制台 输入内容
+				// console.log("dddddd");
+
+				document.getElementById("demo1").innerHTML += " hello web";
+			}
+		</script>
+	</head>
+	<body>
+	
+		<p id="demo1">This is stan</p>
+		<button onclick="mydemo1()">点我吧</button>
+	</body>
+</html>
