@@ -17,6 +17,74 @@
 			//给对应的下标赋值
 			arrs[0] = 100;
 
+			//JS arrays object
+			//length
+			//push pop shift unshift
+			//concat
+			//slice
+			//splice
+			//sort
+			//reverse
+			//join
+			//toString
+			//toLocaleString
+			//concat
+			//indexOf
+			//lastIndexOf
+			//every
+			//some
+			//forEach
+			//map
+			//filter
+			//reduce
+
+			//js arrays类似于java中的List 长度和类型都是可变的
+			var arr = new Array(1,2,3,4,5)
+			arr[10] = "hello"
+			console.log(arr)
+
+			//常见的属性和方法 length ,for,push，splice
+			
+			//push是在将新的元素添加在数组的末尾 arrs.push("stanzhang")
+
+			//splice是从数组中删除元素 arrs.push("stanzhang")
+			//arrs.splice(0,1) 第一个参数表示数组的从哪个下标开始删除，第二个参数表示删除几个元素
+
+			var arrs = new Array(1,2,3,4,5)
+			arrs.push("stanzhang")
+			arrs.splice(0,2)
+
+			//for循环 遍历
+			for(let i = 0; i < arrs.length; i++){
+				console.log("this value================= " , arrs[i]);
+				
+			}
+
+			//forEach（接受一个函数funtion()）
+			// item：当前遍历到的数组元素。
+			// index：当前元素的索引。
+			// arr：整个数组对象。
+			
+			//1.forEacg循环 遍历
+			arrs.forEach(function(item,index,arr){
+				console.log("item ================== " , item);
+				console.log("index ================== " , index);
+				console.log("arr ================== " , arr);
+			})
+
+			//2.forEacg循环 遍历
+			arrs.forEach(arrs => console.log(" ====>",arrs));
+
+
+			arrs.forEach((arrs, index, array) => {
+				console.log(`Index ${index}: ${arrs} in array ${array}`);
+			});
+
+			//ES6中有个箭头函数 可以简化代码=>
+			 console.log("==========================ES6中有个箭头函数 可以简化代码=>")
+			arrs.forEach((arrs, index, array) => console.log(`Index ${index}: ${arrs} in array ${array}`));
+
+		
 		</script>
     </body>
 </html>
