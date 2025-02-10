@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>study web</title>
+	</head>
+	<body>
+        
+        <script type="text/javascript">
+            //js在中基本数据类型是原始类型和引用类型
+            // number:正数 小数
+            // string: 字符串
+            // boolean: true false
+            // null: 空值
+            // undefined:未初始化的变量 默认值
+
+            //js中基本数据类型是引用类型 object
+            //想知道数据类型可以用 typeof
+            // object: 对象
+            // array: 数组
+            // function: 函数
+
+            alert(typeof 100);
+            alert(typeof "stan");
+
+            //JS中 == 比较两个值会先进行转换成相同类型 在比较 
+            //     ===  不会进行转换
+            var age = 20;
+            var _age = "20";
+            var $age = 20;
+
+            alert(age == _age); //true
+            alert(age === _age);//false
+            alert(age === $age);//true
+
+            //数据类型转换
+            alert(parseInt("20")); //20
+            alert(parseFloat("12A45")); //12
+            alert(parseInt("A12")); //NaN (not a number)
+
+
+        
+
+     
+
+        </script>
+
+    </body>
+</html>
