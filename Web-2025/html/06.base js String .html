@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>study web</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "hello world    "
+			var str2 = new String("hello world");
+			console.log(str.length)
+
+			//字符串的属性 长度
+			str.length
+
+			//返回指定位置的字符串
+			str.charAt(0)
+
+			//检查字符串 返回字符串的下标
+			var index =  str.indexOf("o")
+			console.log(index)
+
+			//去除字符串两边的空格
+			var tri = str.trim()
+			console.log(tri)
+
+			//字符串连接
+			var con = str.concat("hello world stanzhang")
+			console.log(con)
+
+			//字符串截取(开始索引，结束索引) 含头不含尾
+			var sub = con.substring(0,31)
+			console.log(sub)
+		</script>
+    </body>
+</html>

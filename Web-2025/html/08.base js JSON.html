@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>study web</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			//json字符串
+			var jsonStr = '{"name":"stanzhang","age":18,"school":"清华大学"}';
+
+			//将json字符串转为js对象
+			var jsonObj = JSON.parse(jsonStr);
+			console.log("将json字符串转为js对象==================",jsonObj);
+
+			//获取对象中的值
+			console.log("获取对象中的值==================",jsonObj.name,jsonObj.age,jsonObj.school);
+
+			//修改对象中的值
+			jsonObj.name = "wangzhong";
+			jsonObj.age = 36;
+			jsonObj.school = "清华大学1";
+			console.log("修改对象中的值==================",jsonObj);
+
+
+			//将js对象转为 JSON字符串
+			var jsonStrss = JSON.stringify(jsonObj);
+			console.log("将js对象转为 JSON字符串==================",jsonStrss);
+		
+
+	
+		</script>
+
+
+    </body>
+</html>
