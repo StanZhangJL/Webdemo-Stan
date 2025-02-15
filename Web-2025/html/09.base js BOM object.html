@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>study web</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.WINDOWS 对象
+		
+			//对History对象的只读引用
+			//Window.history();
+
+			//用于窗口或者框架的Localtion对象
+			//window.location();
+
+			//显示一个警告框
+			// window.alert("hi stan");
+
+			//显示一条带有提示框的按钮 例如删除按钮 弹出一个对话框需要确认 或者取消
+			// var flag = confirm("你确认删除吗？");
+			// alert(flag);
+
+			// 定时器 周期性的循环执行某一个函数
+			var num = 0;
+			window.setInterval(
+				
+				function(){
+					num ++;
+					console.log("num = ",num);
+					alert("hi stan:  ========================="+ num);
+				},2000);
+
+
+			// 定时器 延迟指定时间执行一次
+			window.setTimeout(
+				function(){
+					alert("hi stan:  =========================");
+				},2000);
+
+
+
+
+			//2. Localtion 对象 获取当前页面的URL
+			alert("Localtion 对象========================="+ location.href);
+			//地址当前页面地址并且自动跳转
+			location.href = "http://www.baidu.com";
+
+
+
+		</script>
+
+
+
+
+
+    </body>
+</html>
