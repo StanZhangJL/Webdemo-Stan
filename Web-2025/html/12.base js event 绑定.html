@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>study web</title>
+	</head>
+	<body>
+		<!-- 推荐做法
+		在现代 Web 开发中，推荐使用通过 DOM 元素属性进行绑定。原因如下：
+		
+		分离关注点：保持 HTML 和 JavaScript 的分离，使代码更清晰、更易于维护。
+		模块化开发：便于使用模块化开发工具（如 Webpack、Rollup 等），提高代码复用性和可维护性。
+		动态操作：可以在运行时动态地添加、移除或修改事件处理程序，提供更大的灵活性。
+		性能优化：可以使用事件委托等技术来优化性能，尤其是在处理大量 DOM 元素时。
+		最佳实践
+		使用 addEventListener 方法：相比于直接赋值 onclick 属性，addEventListener 更加灵活，允许多个事件处理程序绑定到同一个事件上。
+		
+		javascript
+		document.getElementById("bth").addEventListener('click', function() {
+			alert("hi stanzhang 我被点击了");
+		});
+		确保 DOM 已加载：将脚本放在 body 结尾，或者使用 DOMContentLoaded 事件确保 DOM 已经完全加载。
+		
+		javascript
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById("bth").addEventListener('click', function() {
+				alert("hi stanzhang 我被点击了");
+			});
+		});
+		通过这些最佳实践，你可以编写更加健壮、可维护和高效的代码。 -->
+
+
+
+		<!-- 通过HTML标签中的事件属性进行绑定 -->
+		<input type="button" value="点我 我是按钮" onclick="on()">
+
+		<!-- 通过DOM元素属性进行绑定 -->
+		<input type="button"  id="bth" value="点我 我是按钮2" >
+
+		<script type="text/javascript">
+			function on(){
+				alert("hi stan 我被点击了");
+			}
+
+			document.getElementById("bth").onclick = function(){
+				alert("hi stanzhang 我被点击了");
+			}
+		</script>
+    </body>
+</html>
