@@ -32,17 +32,17 @@
 
 
 		<!-- 通过HTML标签中的事件属性进行绑定 -->
-		<input type="button" value="点我 我是按钮" onclick="on()">
+		<input type="button" id="bth1" value="点我 我是按钮" onclick="on()">
 
 		<!-- 通过DOM元素属性进行绑定 -->
-		<input type="button"  id="bth" value="点我 我是按钮2" >
+		<input type="button"  id="bth2" value="点我 我是按钮2" >
 
 		<script type="text/javascript">
 			function on(){
 				alert("hi stan 我被点击了");
 			}
 
-			document.getElementById("bth").onclick = function(){
+			document.getElementById("bth2").onclick = function(){
 				alert("hi stanzhang 我被点击了");
 			}
 		</script>

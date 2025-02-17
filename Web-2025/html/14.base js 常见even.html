@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>study web</title>
+	</head>
+	<body>
+
+		<img id="light" src="img/off.png"><br> 
+
+		<input id="bt1" type="button" value="点亮" onclick="onclickEvent()">
+		<input id="bt2" type="button" value="熄灭" onclick="offclickEvent()">
+
+		<br> <br>
+
+		<input type="text" id="name" value="ITCAST" onfocus="onfocusEvent()" onblur="onblurEvent()">
+		<br> <br>
+
+		<input type="checkbox" name="hobby"> 音乐
+		<input type="checkbox" name="hobby"> 美术
+		<input type="checkbox" name="hobby"> 游戏
+		<br>
+
+		<input type="button" value="全选" onclick="selectAll()" >
+		<input type="button" value="反选" onclick="reverseSelect()">
+
+
+
+		
+
+
+    </body>
+
+	<script type="text/javascript">
+		function onclickEvent(){
+			var img = document.getElementById("light");
+			if(img.src.indexOf("off") != -1){
+				img.src = "img/on.png";
+			}
+		}
+
+		function offclickEvent(){
+			var img =  document.getElementById("light");
+			if(img.src.indexOf("on")!= -1){
+				img.src = "img/off.png"
+			}
+		}
+
+		//onfocusEvent : 获得焦点事件 输入框内容转成小写
+		//onblurEvent :  失去焦点事件 输入框内容转成大写
+		function onfocusEvent(){
+			var input = document.getElementById("name");
+			input.value = input.value.toLowerCase();
+		}
+
+		function onblurEvent(){
+			var input = document.getElementById("name");
+			input.value = input.value.toUpperCase();
+		}
+
+
+		//全选和反选
+		function selectAll(){
+			document.getElementsByName("hobby").forEach(function(element){
+				element.checked = true;
+			});
+		}
+
+		function reverseSelect(){
+			document.getElementsByName("hobby").forEach(function(ele){
+				ele.checked = false;
+			});
+		}
+
+
+	</script>
+</html>
