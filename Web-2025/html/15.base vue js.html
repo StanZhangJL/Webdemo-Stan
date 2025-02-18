@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<mate http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue js</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+
+		<!-- //定义视图 -->
+		<div id="app">
+			<!-- model这里实现了双向绑定，视图的数据如果修改了那么数据模型中的数据也会随着改变，
+			如果数据模型的数据发生了变化，那么视图也会随着改变 -->
+
+			<input type="text" v-model="stanzhang.hobby">{{stanzhang.hobby}} <br></br>
+
+			<!-- //{{message}} 差值表达式 内容可以是变量 三元运算符 函数调用 算术运算符 -->
+			<input type="text" v-model="message">{{message}}
+		</div>
+		
+
+    </body>
+	
+	<script >
+		//定义vue实例对象
+		new Vue({
+			// 绑定元素
+			el: "#app",
+			data:{
+				//定义对象
+				stanzhang:{
+					name:"stan",
+					age:18,
+					sex:"男",
+					hobby:["打篮球","打游戏","看电影"]
+				},
+				// 定义对象
+				message: "hello stan vue"
+			}
+
+		})
+ 
+	</script>
+</html> 
