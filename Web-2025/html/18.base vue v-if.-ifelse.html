@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<mate http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue js</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+
+		<!-- //定义视图 -->
+		<div id="app"  >
+
+			<!-- v-if v-else-if  v-else 的用法 -->
+
+			<!-- @input 是 Vue.js 中的一个事件修饰符，用于监听输入框的 input 事件。
+			当用户在输入框中输入内容时，input 事件会被触发，从而执行相应的处理逻辑。
+			使用 @input 来调用 validateAge 方法，以便在用户输入内容时实时验证输入是否合法。 -->
+
+			<input type="text" v-model="age" @input="validateAge">
+
+			<span  v-if="age <= 35">年轻人</span>
+
+			<span  v-else-if="age > 35 && age <= 60">中年人</span>
+
+			<span  v-else >老年人 </span>
+
+			<input type="button" value="年龄获取" @click="message()"></input>
+
+			<!-- 对错误输入提示 -->
+			 <p v-if="invalidInput" style="color: red;">请输入有效数字</p><br></br>
+
+
+
+
+
+			 <!-- v-show 的用法 根据渲染的条件来控制元素的显示和隐藏 在标签中使用deplay隐藏 -->
+			  <input type="text" v-model="age" @input="validateAge">
+			  <span v-show="age <= 35"> 年轻人</span>
+			  <span v-show="age > 35 && age <= 60">中年人</span>
+			  <span v-show="age > 60">老年人</span>
+			
+		</div>
+		
+
+    </body>
+	
+	<script >
+		//定义vue实例对象
+		
+		new Vue({
+			el:"#app",
+			data:{
+				age:20,
+				invalidInput:false
+			},
+			methods:{
+				message:function(){
+					alert("age================="+this.age)
+				},
+
+				//这个方法来校验输入内容
+				validateAge: function() {
+					// 使用正则表达式检查输入是否为数字
+				
+				/** 
+				 * /^\d+$/ 的含义：
+				 * /：正则表达式的起始和结束符号
+				 * ^：表示匹配字符串的开始
+				 * \d：匹配任意单个数字字符（0-9）。
+				 * +：表示前面的模式（\d）可以重复一次或多次。
+				 * $：表示匹配字符串的结束。
+				 * 
+				*/
+                if (!/^\d+$/.test(this.age)) { 
+                    this.invalidInput = true;
+                } else {
+                    this.invalidInput = false;
+                }
+
+				}
+			}
+			
+		})
+		
+	</script>
+</html> 

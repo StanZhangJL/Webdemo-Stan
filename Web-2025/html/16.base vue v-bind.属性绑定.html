@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<mate http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue js</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+
+		<!-- //定义视图 -->
+		<div id="app"  >
+			<!-- v-bind 为<HTML></HTML> 标签绑定属性值 如href ccs等 -->
+			<a v-bind:href="url" >链接1 绑定</a>
+			<a :href="url" >链接2 绑定</a>
+
+
+			<!-- v-model 实现双向绑定 输入框中的值 url发生变化时 数据模型值也会变化 -->
+			<input type="text" v-model="url" >
+		
+		</div>
+		
+
+    </body>
+	
+	<script >
+		//定义vue实例对象
+		new Vue({
+			el: "#app",
+			data:{
+
+				url:"https://www.qq.com"
+			}
+		})
+	</script>
+</html> 

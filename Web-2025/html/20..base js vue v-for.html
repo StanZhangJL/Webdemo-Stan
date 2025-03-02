@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<mate http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue js</title>
+		<script src="../js/vue.js"></script>
+		<style>
+			#app{
+				margin: 50px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- //定义视图 -->
+		<div id="app"  >
+			<h1 align="center">清华大学学生信息表</h1>
+			<table border="1" cellspacing="0" width="60%" align="center">
+				<tr>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th>成绩</th>
+					<th>评测结果</th>
+				</tr>
+				<tr align="center" v-for="(user,indedx) in users">
+					<td>{{indedx}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.age}}</td>
+					<td>
+						<span v-if="user.gender == 1">男</span>
+						<span v-else>女</span>
+					</td>
+					<td>{{user.score}}</td>
+					<td>
+						<span v-if="user.score >= 90">优秀</span>
+						<span v-else-if="user.score >= 80 && user.score < 90">良好</span>
+						<span v-else style="color: red;">及格</span>
+					</td>
+				</tr>
+
+		    </table>
+			
+			
+		</div>
+		
+
+    </body>
+	
+	<script >
+		//定义vue实例对象
+		new Vue({
+			el: "#app",
+			data:{
+
+				users: [
+					{name:"stan",age:18,gender: 1,score: 89},
+					{name:"tom",age:25,gender: 0,score: 99},
+					{name:"tony",age:32,gender:1,score: 66},
+					{name:"nancy",age:59,gender:0,score: 68}
+				]
+			},
+			methods:{
+				getAddr:function(){
+					alert("getAddr")
+				}
+			}
+		})
+		
+	</script>
+</html> 

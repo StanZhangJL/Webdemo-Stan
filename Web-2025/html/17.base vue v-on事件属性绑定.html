@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<mate http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue js</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+
+		<!-- //定义视图 -->
+		<!-- v-on为html绑定事件 -->
+		<div id="app" >
+			<input type="button" v-on:click="handle()" value="按钮0">
+			<input type="button" @click="handle()" value="按钮1">
+		</div>
+		
+
+    </body>
+	
+	<script >
+		//定义vue实例对象
+		new Vue({
+			el: "#app",
+			data:{
+				msg: "hello world"
+			},
+			methods:{
+				handle:function(){
+					alert("我是绑定点击事件")
+				}
+			},
+		})
+		
+	</script>
+</html> 
