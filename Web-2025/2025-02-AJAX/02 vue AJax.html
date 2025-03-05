@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<mate http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue js</title>
+		<script src="../js/vue.js"></script>
+		<style>
+			#app{
+				margin: 50px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- //定义视图 -->
+		<input type="button" value="获取数据" onclick="getData()">
+		<div id="app"  >
+			<h1 align="center">清华大学学生信息表</h1>
+			<table border="1" cellspacing="0" width="60%" align="center">
+				<tr>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>图片地址</th>
+					<th>性别</th>
+					<th>工作职位</th>
+					<th>入境日期</th>
+					<th>更新日期</th>
+				</tr>
+				<tr align="center" v-for="(user,index) in teachers" :key="index">
+					<td>{{user.id}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.imageUrl}}</td>
+					<td>
+						<span v-if="user.gender == 1">男</span>
+						<span v-else>女</span>
+					</td>
+					<td>{{user.job}}</td>
+					<td>{{user.entryDate}}</td>
+					<td>{{user.updateTime}}</td>
+				</tr>
+					<!-- 添加一个空行提示 -->
+					<tr v-if="teachers.length === 0">
+					<td colspan="7" align="center">暂无数据</td>
+				</tr>
+				
+
+		    </table>
+		</div>
+		
+
+    </body>
+	
+	<script >
+		var app = new Vue({
+			el: "#app",
+			data:{
+				teachers: []
+			}
+		});
+		
+		function getData(){
+			//创建XMLhttpRequest对象
+			var xmlhttpRequest = new XMLHttpRequest();
+			xmlhttpRequest.open('GET','http://localhost:8080/teachers');
+			xmlhttpRequest.send();
+
+			//发送异步请求
+			xmlhttpRequest.onreadystatechange = function(){
+				if(xmlhttpRequest.readyState == 4 && xmlhttpRequest.status == 200){
+				// 将返回的数据解析为 JSON 并赋值给 Vue 实例中的 teachers 属性
+				app.teachers = JSON.parse(xmlhttpRequest.responseText);
+				
+				}
+			}
+			
+		}
+		
+		
+	</script>
+</html> 
