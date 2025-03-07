@@ -31,7 +31,9 @@
 				<tr align="center" v-for="(user,index) in teachers" :key="index">
 					<td>{{user.id}}</td>
 					<td>{{user.name}}</td>
-					<td>{{user.imageUrl}}</td>
+					<td>
+						<img v-bind:src="user.imageUrl" style="width: 50px; height: 50px;">
+					</td>
 					<td>
 						<span v-if="user.gender == 1">男</span>
 						<span v-else>女</span>
@@ -44,8 +46,6 @@
 					<tr v-if="teachers.length === 0">
 					<td colspan="7" align="center">暂无数据</td>
 				</tr>
-				
-
 		    </table>
 		</div>
 		
@@ -63,18 +63,19 @@
 		function getData(){
 			//创建XMLhttpRequest对象
 			var xmlhttpRequest = new XMLHttpRequest();
-			xmlhttpRequest.open('GET','http://localhost:8080/teachers');
-			xmlhttpRequest.send();
-
-			//发送异步请求
+			xmlhttpRequest.open('GET','http://localhost:8080/teachers/getAllInfo');
+			
+			//发送异步请求  onreadystatechange 事件处理程序。
 			xmlhttpRequest.onreadystatechange = function(){
 				if(xmlhttpRequest.readyState == 4 && xmlhttpRequest.status == 200){
+					console.log(xmlhttpRequest.responseText);
 				// 将返回的数据解析为 JSON 并赋值给 Vue 实例中的 teachers 属性
-				app.teachers = JSON.parse(xmlhttpRequest.responseText);
+				app.teachers = JSON.parse(xmlhttpRequest.responseText).data;
 				
 				}
 			}
-			
+
+			xmlhttpRequest.send();
 		}
 		
 		

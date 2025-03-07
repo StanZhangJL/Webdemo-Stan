@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<mate http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vue js</title>
+		<script src="js/axios-0.18.0.js"></script>
+		<script src="../js/vue.js"></script>
+		<style>
+			#app{
+				margin: 50px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- //定义视图 -->
+		<input type="button" value="获取get数据" onclick="getData()">
+		<input type="button" value="获取post数据" onclick="postData()">
+		<div id="app"  >
+			<h1 align="center">清华大学学生信息表</h1>
+			<table border="1" cellspacing="0" width="60%" align="center">
+				<tr>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>图片地址</th>
+					<th>性别</th>
+					<th>工作职位</th>
+					<th>入境日期</th>
+					<th>更新日期</th>
+				</tr>
+				<tr align="center" v-for="(user,index) in teachers" :key="index">
+					<td>{{user.id}}</td>
+					<td>{{user.name}}</td>
+					<!-- :src 是 v-bind:src 的简写 -->
+					<td><img :src="user.imageUrl" alt="User Image" style="width: 50px; height: 50px;"></td>
+					<td>
+						<span v-if="user.gender == 1">男</span>
+						<span v-else>女</span>
+					</td>
+					<td>{{user.job}}</td>
+					<td>{{user.entryDate}}</td>
+					<td>{{user.updateTime}}</td>
+				</tr>
+					<!-- 添加一个空行提示 -->
+					<tr v-if="teachers.length === 0">
+					<td colspan="7" align="center">暂无数据</td>
+				</tr>
+				
+
+		    </table>
+		</div>
+		
+
+    </body>
+	
+	<script >
+		var app = new Vue({
+			el: "#app",
+			data:{
+				teachers: []
+			}
+		});
+
+		const baseUrl = 'http://localhost:8080/teachers';
+
+		function getData(){
+			//创建axios发生异步请求 get
+			// axios({
+			// 	method: "get",
+			// 	url:"http://localhost:8080/teachers"
+			// }).then(result => {
+			// 	console.log(result.data);
+			// 	// 将返回的数据赋值给 Vue 实例中的 teachers 属性
+			// 	app.teachers = result.data;
+			// })
+
+			// 创建axios对象 另一种写法
+			axios.get(baseUrl + "/getAllInfo").then(response => {
+				console.log(response.data);
+				app.teachers = response.data.data;
+			})
+		}
+
+
+		// 替换为实际的教师ID
+		const teacherId = 1; 
+        
+		//自定义对象
+		const teacherData = {
+			name: "周杰伦",
+			imageUrl: "https://img.dahepiao.com/uploads/allimg/191129/183560-1911291R00b45.png",
+			gender: 1,
+			job: "校长",
+			entryDate: new Date(),
+			updateTime: new Date()
+		};
+
+		function postData(){
+			//创建axios发生异步请求 post
+			// axios({
+			// 	method: "post",
+			// 	url: `http://localhost:8080/teachers/updateInfo/${teacherId}`,
+			// 	// url: 'http://localhost:8080/teachers/updateInfo/${teacherId}',
+			// 	data: teacherData
+
+			// }).then(response => {
+			// 	console.log("数据更新成功:", response.data);
+			// 	app.teachers = response.data;
+			// }).catch(error => {
+			// 	console.error("请求出错:", error);
+			// });
+			axios.post(baseUrl + `/updateInfo/${teacherId}`, teacherData).then(response => {
+					app.teachers = response.data.data;
+				})
+
+		}
+	</script>
+</html> 
